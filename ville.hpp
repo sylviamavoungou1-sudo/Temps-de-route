@@ -14,7 +14,7 @@ class Ville
 
   public:
     // Constructeur
-    Ville(int id, std::string nom, double lon, double lat, int pop);
+    Ville(int id, const std::string& nom, double lon, double lat, int pop);
 
     // Getters indispensables pour la suite
     int getId() const { return id; }
