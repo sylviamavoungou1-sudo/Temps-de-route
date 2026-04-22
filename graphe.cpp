@@ -42,7 +42,25 @@ void Graphe::chargerVilles(const std::string& fichier) {
     }
 }
 void Graphe::chargerTemps(const std::string& fichier) {
-    // on va remplir ici
+    std::ifstream f(fichier);
+    std::string ligne;
+
+    while (std::getline(f, ligne)) {
+        std::stringstream ss(ligne);
+        std::string token;
+        std::vector<std::string> colonnes;
+
+        while (std::getline(ss, token, ',')) {
+            colonnes.push_back(token);
+        }
+
+        int u      = std::stoi(colonnes[0]);
+        int v      = std::stoi(colonnes[1]);
+        double t   = std::stod(colonnes[2]);
+
+        matrice[u][v] = t;
+        matrice[v][u] = t; // le graphe est non orienté
+    }
 }
 
 void Graphe::floydWarshall() {
