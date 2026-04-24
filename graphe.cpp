@@ -23,6 +23,8 @@ void Graphe::chargerVilles(const std::string& fichier) {
     // Ignorer l'en-tête
     std::getline(f, ligne);
 
+   
+
     while (std::getline(f, ligne)) {
         std::stringstream ss(ligne);
         std::string token;
@@ -40,6 +42,7 @@ void Graphe::chargerVilles(const std::string& fichier) {
 
         villes.push_back(Ville(id, nom, lon, lat, pop));
     }
+
 }
 void Graphe::chargerTemps(const std::string& fichier) {
     std::ifstream f(fichier);
